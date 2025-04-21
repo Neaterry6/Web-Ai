@@ -1,7 +1,6 @@
 {
-  "name": "ayanfe-frontend",
+  "name": "frontend",
   "version": "1.0.0",
-  "description": "Frontend of Ayanfe Chatbot",
   "scripts": {
     "start": "vite",
     "build": "vite build",
