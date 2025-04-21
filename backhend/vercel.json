@@ -2,18 +2,42 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/server.js",
+      "src": "frontend/src/index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "frontend/src/login.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "frontend/src/chat.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "backend/src/server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/auth",
-      "dest": "src/auth.js"
+      "src": "/",
+      "dest": "frontend/src/index.html"
+    },
+    {
+      "src": "/login",
+      "dest": "frontend/src/login.html"
     },
     {
       "src": "/chat",
-      "dest": "src/chatController.js"
+      "dest": "frontend/src/chat.html"
+    },
+    {
+      "src": "/api/auth",
+      "dest": "backend/src/auth.js"
+    },
+    {
+      "src": "/api/chat",
+      "dest": "backend/src/chatController.js"
     }
   ]
 }
