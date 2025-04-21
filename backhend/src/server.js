@@ -1,19 +1,31 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");
+require("dotenv").config(); // Load environment variables
 
+// Import routes
 const authRoutes = require("./auth");
 const chatRoutes = require("./chatController");
 
-require("dotenv").config();
-
 const app = express();
-app.use(cors());
+
+// Middleware to parse JSON requests
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+// MongoDB Connection
+mongoose
+  .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
+// Route registration
 app.use("/auth", authRoutes);
 app.use("/chat", chatRoutes);
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+// Basic route for health check
+app.get("/", (req, res) => {
+  res.send("Ayanfe Chatbot Backend is running...");
+});
+
+// Start the server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
