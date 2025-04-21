@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "description": "Frontend of Ayanfe Chatbot",
   "scripts": {
-    "start": "vite",            // Launch development server
-    "build": "vite build",      // Build for production
-    "preview": "vite preview"   // Preview production build locally
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "tailwindcss": "^3.0.0",    // Styling framework
-    "axios": "^1.0.0"           // API communication
+    "axios": "^1.0.0",
+    "tailwindcss": "^3.0.0"
   },
   "devDependencies": {
-    "vite": "^4.0.0",           // Development and build tool
-    "postcss": "^8.4.0",        // Used by Tailwind for processing CSS
-    "autoprefixer": "^10.4.0"   // Automatically add vendor prefixes
+    "vite": "^4.0.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0"
   }
+}
