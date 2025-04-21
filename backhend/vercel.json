@@ -1,6 +1,19 @@
 {
-  "functions": {
-    "api/auth.js": { "runtime": "nodejs18.x" },
-    "api/chat.js": { "runtime": "nodejs18.x" }
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/auth",
+      "dest": "src/auth.js"
+    },
+    {
+      "src": "/chat",
+      "dest": "src/chatController.js"
+    }
+  ]
 }
